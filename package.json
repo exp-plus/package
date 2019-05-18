@@ -1,0 +1,39 @@
+{
+  "name": "services",
+  "version": "0.0.1",
+  "description": "reuse services",
+  "main": "index.js",
+  "repository": "https://github.com/exp-plus/services.git",
+  "author": "kayorl <kayorl@163.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "eslint": "eslint $(git diff-index --cached HEAD --name-only --diff-filter ACMR | egrep '.js$')"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.4",
+    "html-entities": "^1.2.1",
+    "image-node-sdk": "^1.0.7",
+    "image-type": "^4.1.0",
+    "qcloud-cos-sts": "^2.0.7",
+    "qcloudsms_js": "^0.1.1",
+    "redis": "^2.8.0",
+    "sha1": "^1.1.1",
+    "sharp": "^0.22.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": ">=7.0.0",
+    "eslint-plugin-promise": ">=4.0.0",
+    "eslint-plugin-standard": ">=4.0.0",
+    "jest": "^24.7.1",
+    "pre-commit": "^1.2.2",
+    "supertest": "^4.0.2"
+  },
+  "pre-commit": ["eslint"],
+  "precommit.silent": false
+}

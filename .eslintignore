@@ -1,0 +1,12 @@
+node_modules/*
+.jest/*
+tmp.*
+
+node_modules
+.git/
+**/*.log
+
+docs/**
+
+data/**
+generated/**
