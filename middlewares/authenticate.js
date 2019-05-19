@@ -10,24 +10,24 @@ const { ExpressAsyncCatch } = require('../utils')
 function authenticate (JWT, handleAuthenticateResult) {
   return ExpressAsyncCatch(async (req, res, next) => {
     // 检查存在
-    const authorization = req.get['Authorization'] || req.get('authorization')
+    const authorization = req.get('Authorization')
     if (!authorization) throw new Unauthorized('缺少登录凭证', authorization)
 
     // 校验格式
     const [bearer, token] = authorization.split(' ')
-    if (!bearer || token.length <= 0) throw new Unauthorized('登录凭证格式有误', authorization)
+    if (!bearer || bearer !== 'Bearer' || token.length <= 0) throw new Unauthorized('登录凭证格式有误，应为 Bearer token', authorization)
 
     try {
       const result = JWT.verify(token)
       /**
-         * 结果与 req 进行处理
-         */
-      handleAuthenticateResult(req, result)
+       * 结果与 req 进行处理
+       */
+      handleAuthenticateResult(result, req)
       next()
     } catch (error) {
       if (error instanceof jwt.TokenExpiredError || error instanceof jwt.NotBeforeError) throw new Unauthorized('登录凭证已过期')
       if (error instanceof jwt.JsonWebTokenError) throw new Unauthorized('登录凭证无效', error)
-      throw InternalServerError('认证未知错误', error)
+      throw new InternalServerError('认证未知错误', error)
     }
   })
 }
