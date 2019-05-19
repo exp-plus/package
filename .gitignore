@@ -24,3 +24,5 @@ coverage
 
 docs/*
 tmp/*
+
+config/test.js

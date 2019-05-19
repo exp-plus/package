@@ -207,13 +207,15 @@ class WechatMiniProgram {
           g: 255,
           b: 255
         }
-      }).resize(370, 370).png().overlayWith(roundedCorners, {
+      }).resize(370, 370).png().composite([{
+        input: roundedCorners,
         cutout: true
-      }).toBuffer()
-      data = sharp(data).resize(800, 800).png().overlayWith(center_image, {
+      }]).toBuffer()
+      data = sharp(data).resize(800, 800).png().composite([{
+        input: center_image,
         left: 215,
         top: 215
-      })
+      }])
       if (is_hyaline) {
         data = data.png()
       } else {
@@ -241,7 +243,6 @@ class WechatMiniProgram {
         return 'UNKNOWN'
     }
   }
-
   /**
    * @typedef {Object} UserData
    * @property {string} nickname 用户名
@@ -289,7 +290,6 @@ class WechatMiniProgram {
       }
 
       const { purePhoneNumber, countryCode } = phone_data
-
       formattedData.phone = purePhoneNumber
       formattedData.phone_country_code = countryCode
     }

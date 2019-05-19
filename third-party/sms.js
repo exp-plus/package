@@ -1,5 +1,5 @@
 const QcloudSms = require('qcloudsms_js')
-const { ThirdPartyError } = require('../exceptions')
+const { ThirdPartyError, InternalServerError } = require('../exceptions')
 
 
 /**
@@ -24,6 +24,7 @@ class SMS {
      * @param {String} phone 电话号码
      * @param {*} template_id 模板 id
      * @param {*} params 模板对应的参数
+     * @returns 
      */
   async sendSingleSms (country_code, phone, template_id, params) {
     const ssender = this.qcloudsms.SmsSingleSender()
@@ -32,7 +33,11 @@ class SMS {
         if (err) {
           throw new ThirdPartyError('短信发送错误', err)
         } else {
-          resolve(resData)
+          if (resData.result !== 0) {
+            throw InternalServerError('短信发送错误', resData)
+          } else {
+            resolve(resData)
+          }
         }
       })
     })
@@ -56,7 +61,11 @@ class SMS {
           if (err) {
             throw new ThirdPartyError('短信发送错误', err)
           } else {
-            resolve(resData)
+            if (resData.result !== 0) {
+              throw InternalServerError('短信发送错误', resData)
+            } else {
+              resolve(resData)
+            }
           }
         })
     })

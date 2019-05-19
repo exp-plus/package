@@ -16,7 +16,7 @@ class COS {
 
   /**
    * 
-   * 将对象放置到存储桶中
+   * 将文件放置到存储桶中
    * @see https://cloud.tencent.com/document/product/436/14690
    * 
    * @param {Object} object 一个 COS 对象
@@ -28,7 +28,7 @@ class COS {
         if (err) {
           reject(new ThirdPartyError('对象存储出错', err))
         } else {
-          resolve(object.BaseUrl + object.Key)
+          resolve(object.Host + object.Key)
         }
       })
     })
@@ -65,7 +65,7 @@ class COS {
         }
       }, (err, tmpKeys) => {
         if (err) {
-          reject(new ThirdPartyError('对象存储临时密钥生成错误', { arguments, err }))
+          reject(new ThirdPartyError('对象存储临时密钥生成错误', { args: arguments, err }))
         } else {
           resolve(tmpKeys)
         }

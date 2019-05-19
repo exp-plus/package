@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "test": "NODE_ENV=test node_modules/jest/bin/jest.js --colors",
     "eslint": "eslint $(git diff-index --cached HEAD --name-only --diff-filter ACMR | egrep '.js$')"
   },
   "dependencies": {
