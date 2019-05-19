@@ -11,11 +11,14 @@
     "eslint": "eslint $(git diff-index --cached HEAD --name-only --diff-filter ACMR | egrep '.js$')"
   },
   "dependencies": {
+    "@hapi/joi": "^15.0.3",
     "axios": "^0.18.0",
     "bluebird": "^3.5.4",
+    "cos-nodejs-sdk-v5": "^2.5.9",
     "html-entities": "^1.2.1",
     "image-node-sdk": "^1.0.7",
     "image-type": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
     "qcloud-cos-sts": "^2.0.7",
     "qcloudsms_js": "^0.1.1",
     "redis": "^2.8.0",
@@ -34,6 +37,8 @@
     "pre-commit": "^1.2.2",
     "supertest": "^4.0.2"
   },
-  "pre-commit": ["eslint"],
-  "precommit.silent": false
+  "pre-commit": [
+    "eslint"
+  ],
+  "precommit.silent": true
 }

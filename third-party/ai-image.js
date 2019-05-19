@@ -1,5 +1,5 @@
 const { ImageClient } = require('image-node-sdk')
-const { ServiceError } = require('../global').Errors
+const { ThirdPartyError } = require('../exceptions')
 
 
 /**
@@ -29,11 +29,11 @@ class AIImage {
       })
       const { result_list } = JSON.parse(body)
       if (!(result_list instanceof Array) || result_list.length !== 1) {
-        throw ServiceError.aiImageError(`返回结果不为数据，且长度不为1${body}`)
+        throw new ThirdPartyError('返回结果不为数据，且长度不为1', body)
       }
       return result_list[0].data
     } catch (error) {
-      throw ServiceError.aiImageError(error)
+      throw new ThirdPartyError('智能识图错误', error)
     }
   }
 }

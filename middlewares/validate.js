@@ -1,4 +1,4 @@
-const Joi = require('joi')
+const Joi = require('@hapi/joi')
 const { BadRequest } = require('../exceptions')
 const { ExpressAsyncCatch } = require('../utils')
 /**

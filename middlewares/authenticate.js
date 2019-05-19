@@ -25,7 +25,7 @@ function authenticate (JWT, handleAuthenticateResult) {
       handleAuthenticateResult(req, result)
       next()
     } catch (error) {
-      if (error instanceof jwt.TokenExpiredError || error instanceof jwt.NotBeforeError) throw Errors.ClientError.unauthorized('登录凭证已过期')
+      if (error instanceof jwt.TokenExpiredError || error instanceof jwt.NotBeforeError) throw new Unauthorized('登录凭证已过期')
       if (error instanceof jwt.JsonWebTokenError) throw new Unauthorized('登录凭证无效', error)
       throw InternalServerError('认证未知错误', error)
     }

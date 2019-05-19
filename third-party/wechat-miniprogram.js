@@ -1,7 +1,7 @@
 const crypto = require('crypto')
-const axios = require('./node_modules/axios')
-const sharp = require('./node_modules/sharp')
-const sha1 = require('./node_modules/sha1')
+const axios = require('axios')
+const sharp = require('sharp')
+const sha1 = require('sha1')
 const { BadRequest, TooManyRequest, ThirdPartyError, InternalServerError } = require('../exceptions')
 /**
  * Wechat Mini Program
@@ -191,7 +191,6 @@ class WechatMiniProgram {
         default: throw new ThirdPartyError('小程序生成二维码文档未更新', { errcode, errmsg })
       }
     }
-
 
     // 覆盖图片
     if (center_image_url) {
