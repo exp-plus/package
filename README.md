@@ -14,14 +14,13 @@ $ yarn test
 ## 目录结构
 ```
 ├── config          配置文件目录
-├── exceptions      枚举的错误
+├── exception       枚举的错误
 ├── global          全局变量，如 env 等
 ├── images          测试图片
-├── middlewares     中间件
+├── middleware      中间件
 ├── node_modules
-├── services        应用服务
-├── third-party     第三方服务
-└── utils           工具方法
+├── plugin          第三方服务
+└── util            工具方法
 ```
 
 

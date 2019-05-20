@@ -1,15 +1,15 @@
 {
-  "name": "services",
+  "name": "@exp-plus/package",
   "version": "0.0.1",
-  "description": "reuse services",
+  "description": "package",
   "main": "index.js",
-  "repository": "https://github.com/exp-plus/services.git",
+  "repository": "https://github.com/exp-plus/package.git",
   "author": "kayorl <kayorl@163.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "node_modules/jest/bin/jest.js --colors",
-    "lint": "eslint . --ext .js --cache --fix"
+    "lint": "eslint . --ext .js --cache --cache-file ./cache/.eslintcache  --fix"
   },
   "dependencies": {
     "@hapi/joi": "^15.0.3",
