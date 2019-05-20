@@ -1,5 +1,7 @@
-const QcloudSms = require('qcloudsms_js')
-const { ThirdPartyError, InternalServerError } = require('../exception')
+'use strict';
+
+const QcloudSms = require('qcloudsms_js');
+const { ThirdPartyError, InternalServerError } = require('../exception');
 
 
 /**
@@ -8,68 +10,70 @@ const { ThirdPartyError, InternalServerError } = require('../exception')
  */
 class SMS {
   /**
-     * 
+     *
      * @see APK https://github.com/qcloudsms/qcloudsms_js
      * @see 模板id https://console.cloud.tencent.com/sms/smsContent/1400132013/1/10
+     * @param {String} appid id
+     * @param {String} appkey 密钥
+     * @param {String} sign 短信签名
      */
-  constructor (appid, appkey, sign) {
-    this.sign = sign
-    this.qcloudsms = QcloudSms(appid, appkey)
+  constructor(appid, appkey, sign) {
+    this.sign = sign;
+    this.qcloudsms = QcloudSms(appid, appkey);
   }
   /**
      * 发送单条短信
      * @see 文档 https://cloud.tencent.com/document/product/382/5976
-     * 
+     *
      * @param {String} country_code  城市代码
      * @param {String} phone 电话号码
      * @param {*} template_id 模板 id
      * @param {*} params 模板对应的参数
-     * @returns 
      */
-  async sendSingleSms (country_code, phone, template_id, params) {
-    const ssender = this.qcloudsms.SmsSingleSender()
+  async sendSingleSms(country_code, phone, template_id, params) {
+    const ssender = this.qcloudsms.SmsSingleSender();
     return new Promise((resolve, reject) => {
-      ssender.sendWithParam(country_code, phone, template_id, params, this.sign, '', '', function (err, res, resData) {
+      ssender.sendWithParam(country_code, phone, template_id, params, this.sign, '', '', function(err, res, resData) {
         if (err) {
-          throw new ThirdPartyError('短信发送错误', err)
+          reject(new ThirdPartyError('短信发送错误', err));
         } else {
           if (resData.result !== 0) {
-            throw InternalServerError('短信发送错误', resData)
+            reject(new InternalServerError('短信发送错误', resData));
           } else {
-            resolve(resData)
+            resolve(resData);
           }
         }
-      })
-    })
+      });
+    });
   }
 
   /**
      * 发送多条短信
      * @see 文档 https://cloud.tencent.com/document/product/382/5977
-     * 
+     *
      * @param {String} country_code  城市代码
      * @param {[String]} phones 电话号码列表
      * @param {Number} template_id 模板 id
      * @param {[String]} params 模板对应的参数
      */
-  async sendMultiSms (country_code, phones, template_id, params) {
-    var msender = this.qcloudsms.SmsMultiSender()
+  async sendMultiSms(country_code, phones, template_id, params) {
+    const msender = this.qcloudsms.SmsMultiSender();
     return new Promise((resolve, reject) => {
       msender.sendWithParam(country_code, phones, template_id,
         params, this.sign, '', '',
-        function (err, res, resData) {
+        function(err, res, resData) {
           if (err) {
-            throw new ThirdPartyError('短信发送错误', err)
+            reject(new ThirdPartyError('短信发送错误', err));
           } else {
             if (resData.result !== 0) {
-              throw InternalServerError('短信发送错误', resData)
+              reject(new InternalServerError('短信发送错误', resData));
             } else {
-              resolve(resData)
+              resolve(resData);
             }
           }
-        })
-    })
+        });
+    });
   }
 }
 
-module.exports = SMS
+module.exports = SMS;

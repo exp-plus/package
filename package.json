@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "test": "node_modules/jest/bin/jest.js --colors",
-    "eslint": "eslint $(git diff-index --cached HEAD --name-only --diff-filter ACMR | egrep '.js$')"
+    "lint": "eslint . --ext .js --cache --fix"
   },
   "dependencies": {
     "@hapi/joi": "^15.0.3",
@@ -27,19 +27,14 @@
     "sharp": "^0.22.1"
   },
   "devDependencies": {
-    "eslint": "^5.12.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jest": "^21.17.0",
-    "eslint-plugin-node": "^7.0.0",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint": "^5.12.0",    
+    "eslint-config-egg": "^7.1.0",
     "jest": "^24.7.1",
     "pre-commit": "^1.2.2",
     "supertest": "^4.0.2"
   },
   "pre-commit": [
-    "eslint"
+    "lint"
   ],
   "precommit.silent": true
 }

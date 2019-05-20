@@ -1,9 +1,11 @@
+'use strict';
+
 module.exports = {
   wechat: {
     miniprogram: {
       appid: '',
-      secret: ' '
-    }
+      secret: ' ',
+    },
   },
   tencent_cloud: {
     // 全局的
@@ -18,8 +20,8 @@ module.exports = {
       Region: ' ',
       Buckets: [{
         host: ' ',
-        name: ' '
-      }]
+        name: ' ',
+      }],
     }],
     // 短信服务
     sms: {
@@ -30,15 +32,15 @@ module.exports = {
         {
           template_id: 1,
           name: '1',
-          params: [' ']
+          params: [ ' ' ],
         },
         {
           template_id: 2,
           name: '2',
-          params: [' ']
-        }
-      ]
-    }
-  }
-}
+          params: [ ' ' ],
+        },
+      ],
+    },
+  },
+};
 
