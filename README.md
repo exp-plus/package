@@ -1,6 +1,6 @@
 # Exp Plus
 与腾讯云结合，快速启动应用。
-
+参考 https://eggjs.org/zh-cn/intro/index.html
 
 ## 测试
 ``` bash
@@ -8,6 +8,8 @@
 $ yarn
 $ yarn test
 ```
+
+## 功能
 
 ## 目录结构
 ```

@@ -1,5 +1,5 @@
 const { ImageClient } = require('image-node-sdk')
-const { ThirdPartyError } = require('../exceptions')
+const { ThirdPartyError } = require('../exception')
 
 
 /**

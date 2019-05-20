@@ -1,7 +1,7 @@
 module.exports = {
-  Exceptions: require('./exceptions'),
-  Middlewares: require('./middlewares'),
-  Services: require('./services'),
-  ThirdParty: require('./third-party'),
-  Utils: require('./utils')
+  exception: require('./exception'),
+  middleware: require('./middleware'),
+  service: require('./service'),
+  plugin: require('./plugin'),
+  util: require('./util')
 }

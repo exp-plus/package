@@ -1,5 +1,5 @@
 const COSObj = require('cos-nodejs-sdk-v5')
-const { ThirdPartyError } = require('../exceptions')
+const { ThirdPartyError } = require('../exception')
 const STS = require('qcloud-cos-sts')
 
 /**

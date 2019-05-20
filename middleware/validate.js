@@ -1,6 +1,6 @@
 const Joi = require('@hapi/joi')
-const { BadRequest } = require('../exceptions')
-const { ExpressAsyncCatch } = require('../utils')
+const { BadRequest } = require('../exception')
+const { ExpressAsyncCatch } = require('../util')
 /**
  * 参数校验
  * @see https://github.com/hapijs/joi

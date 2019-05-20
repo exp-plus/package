@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
-const { Unauthorized, InternalServerError } = require('../exceptions')
-const { ExpressAsyncCatch } = require('../utils')
+const { Unauthorized, InternalServerError } = require('../exception')
+const { ExpressAsyncCatch } = require('../util')
 
 /**
  * 对请求进行鉴权，并将鉴权后的结果与 req 进行处理

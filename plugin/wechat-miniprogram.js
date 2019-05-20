@@ -2,7 +2,7 @@ const crypto = require('crypto')
 const axios = require('axios')
 const sharp = require('sharp')
 const sha1 = require('sha1')
-const { BadRequest, TooManyRequest, ThirdPartyError, InternalServerError } = require('../exceptions')
+const { BadRequest, TooManyRequest, ThirdPartyError, InternalServerError } = require('../exception')
 /**
  * Wechat Mini Program
  * @class

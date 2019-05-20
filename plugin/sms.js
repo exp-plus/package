@@ -1,5 +1,5 @@
 const QcloudSms = require('qcloudsms_js')
-const { ThirdPartyError, InternalServerError } = require('../exceptions')
+const { ThirdPartyError, InternalServerError } = require('../exception')
 
 
 /**
