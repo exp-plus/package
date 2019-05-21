@@ -3,7 +3,7 @@
 
 const { captureError } = require('..');
 
-const { Unauthorized, InternalServerError } = require('../../exceptions');
+const { Unauthorized, InternalServerError } = require('../@exp-plus/exceptions');
 
 describe('错误捕获', () => {
   test('客户端错误捕获', async done => {

@@ -1,7 +1,7 @@
 'use strict';
 
 const Joi = require('@hapi/joi');
-const { BadRequest } = require('../exception');
+const { BadRequest } = require('@exp-plus/exception');
 const { ExpressAsyncCatch } = require('../util');
 /**
  * 参数校验

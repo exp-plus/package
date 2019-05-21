@@ -1,6 +1,6 @@
 {
   "name": "@exp-plus/package",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "package",
   "main": "index.js",
   "repository": "https://github.com/exp-plus/package.git",
@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .js --cache --cache-file ./cache/.eslintcache  --fix"
   },
   "dependencies": {
+    "@exp-plus/exception": "0.0.2",
     "@hapi/joi": "^15.0.3",
     "axios": "^0.18.0",
     "bluebird": "^3.5.4",
@@ -19,6 +20,7 @@
     "html-entities": "^1.2.1",
     "image-node-sdk": "^1.0.7",
     "image-type": "^4.1.0",
+    "jsdom": "^15.1.0",
     "jsonwebtoken": "^8.5.1",
     "qcloud-cos-sts": "^2.0.7",
     "qcloudsms_js": "^0.1.1",
@@ -27,7 +29,7 @@
     "sharp": "^0.22.1"
   },
   "devDependencies": {
-    "eslint": "^5.12.0",    
+    "eslint": "^5.12.0",
     "eslint-config-egg": "^7.1.0",
     "jest": "^24.7.1",
     "pre-commit": "^1.2.2",

@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const { Unauthorized, InternalServerError } = require('../exception');
+const { Unauthorized, InternalServerError } = require('@exp-plus/exception');
 const { ExpressAsyncCatch } = require('../util');
 
 /**

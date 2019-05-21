@@ -1,6 +1,6 @@
 'use strict';
 
-const { JsonWebToken } = require('../../util');
+const { JsonWebToken } = require('..');
 
 describe('Json Web Token', () => {
   test('令牌一秒内过期', done => {

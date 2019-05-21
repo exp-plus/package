@@ -1,7 +1,7 @@
 'use strict';
 
 const COSObj = require('cos-nodejs-sdk-v5');
-const { ThirdPartyError } = require('../exception');
+const { ThirdPartyError } = require('@exp-plus/exception');
 const STS = require('qcloud-cos-sts');
 
 /**

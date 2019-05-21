@@ -1,7 +1,7 @@
 'use strict';
 
 const { ImageClient } = require('image-node-sdk');
-const { ThirdPartyError } = require('../exception');
+const { ThirdPartyError } = require('@exp-plus/exception');
 
 
 /**
